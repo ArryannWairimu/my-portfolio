@@ -1,0 +1,189 @@
+/* Minimal app-level styles; Tailwind handles most layout */
+html, body, #root {
+  height: 100%;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button hover animation */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Link hover effects */
+a {
+  transition: color 0.3s ease;
+}
+
+/* Code block styles */
+code {
+  background-color: #f3f4f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* --- HERO ANIMATIONS --- */
+
+/* Fade-in animation for heading */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation for description */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom-in animation for image */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Float animation for image */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Gradient animation for buttons */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Typing animation for text - more visible */
+@keyframes typing {
+  from {
+    width: 0;
+    border-right: 3px solid rgba(37, 99, 235, 1);
+  }
+  to {
+    width: 100%;
+    border-right: 3px solid rgba(37, 99, 235, 1);
+  }
+}
+
+@keyframes blink {
+  0%, 49%, 100% {
+    border-right-color: rgba(37, 99, 235, 1);
+  }
+  50%, 99% {
+    border-right-color: transparent;
+  }
+}
+
+/* Floating animation for background shapes */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg);
+  }
+}
+
+@keyframes floatMedium {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(40px) rotate(-180deg);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.8s ease-out 0.3s backwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: floatMedium 6s ease-in-out infinite;
+}
+
+/* Typing text styles */
+.animated-text {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-cursor {
+  display: inline;
+  animation: blink 0.7s infinite;
+  border-right: 3px solid rgba(37, 99, 235, 1);
+  padding-right: 2px;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background-size: 200% 200%;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  animation: gradientShift 2s ease infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline-gradient {
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #2563eb, #1d4ed8) 1;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gradient:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(29, 78, 216, 0.05));
+}
