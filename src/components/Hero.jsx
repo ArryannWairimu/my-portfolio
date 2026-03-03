@@ -31,7 +31,7 @@ export default function Hero() {
           </div>
           <div className="flex justify-center animate-zoom-in">
             <div className="w-64 h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-200 to-indigo-200 shadow-2xl animate-float relative group">
-              <img alt="Your portrait" src="/src/assets/portrait.jpeg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <img alt="Your portrait" src="/portrait.jpeg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-blue-600/10 to-transparent"></div>
             </div>

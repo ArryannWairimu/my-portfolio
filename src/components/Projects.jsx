@@ -7,7 +7,7 @@ const PROJECTS = [
     desc: 'Full-stack React application with Node.js backend. Built with modern tooling, responsive design, and optimized performance.',
     github: 'https://github.com/your-github/react-project',
     preview: 'https://your-hosted-link/react-project',
-    image: '/src/assets/project1.png',
+    image: '/project1.png',
     category: 'React'
   },
   {
@@ -16,7 +16,7 @@ const PROJECTS = [
     desc: 'PHP-based web application with MySQL database. Features include user authentication, database management, and SEO optimization.',
     github: 'https://github.com/ArryannWairimu/traffic-accident',
     preview: 'https://traffic-accident-35kz.onrender.com',
-    image: '/src/assets/project2.png',
+    image: '/project2.png',
     category: 'PHP'
   },
   {
@@ -24,7 +24,7 @@ const PROJECTS = [
     title: 'SEO Optimization & Analytics',
     desc: 'SEO strategy implementation, keyword research, on-page optimization, and performance analytics. Improved rankings and organic traffic.',
     preview: 'https://perfumelux.co.ke/ladies-perfumes',
-    image: '/src/assets/seo-screenshot.png',
+    image: '/seo-screenshot.png',
     category: 'SEO'
   }
 ]
