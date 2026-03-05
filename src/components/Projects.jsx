@@ -5,8 +5,8 @@ const PROJECTS = [
     id: 1,
     title: 'React Web Application',
     desc: 'Full-stack React application with Node.js backend. Built with modern tooling, responsive design, and optimized performance.',
-    github: 'https://github.com/your-github/react-project',
-    preview: 'https://your-hosted-link/react-project',
+    github: 'https://github.com/ArryannWairimu/Todo-list-APP',
+    preview: 'https://todo-list-app-x42x.onrender.com',
     image: '/project1.png',
     category: 'React'
   },
