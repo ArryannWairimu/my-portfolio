@@ -1,9 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const navRef = useRef(null)
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpen(false)
+      }
+    }
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [open])
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white shadow-sm sticky top-0 z-50" ref={navRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
@@ -28,11 +43,11 @@ export default function Navbar() {
       {open && (
         <nav className="md:hidden border-t bg-white pb-4">
           <div className="container mx-auto px-4 space-y-2 pt-2">
-            <a href="#hero" className="block text-slate-700 py-2">Home</a>
-            <a href="#skills" className="block text-slate-700 py-2">About</a>
-            <a href="#projects" className="block text-slate-700 py-2">Projects</a>
-            <a href="#services" className="block text-slate-700 py-2">Services</a>
-            <a href="#contact" className="block text-slate-700 py-2">Contact</a>
+            <a href="#hero" onClick={() => setOpen(false)} className="block text-slate-700 py-2">Home</a>
+            <a href="#skills" onClick={() => setOpen(false)} className="block text-slate-700 py-2">About</a>
+            <a href="#projects" onClick={() => setOpen(false)} className="block text-slate-700 py-2">Projects</a>
+            <a href="#services" onClick={() => setOpen(false)} className="block text-slate-700 py-2">Services</a>
+            <a href="#contact" onClick={() => setOpen(false)} className="block text-slate-700 py-2">Contact</a>
           </div>
         </nav>
       )}
