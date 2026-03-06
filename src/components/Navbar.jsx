@@ -3,17 +3,26 @@ import React, { useState, useRef, useEffect } from 'react'
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const navRef = useRef(null)
+  const buttonRef = useRef(null)
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      if (navRef.current && !navRef.current.contains(event.target) && (!buttonRef.current || !buttonRef.current.contains(event.target))) {
         setOpen(false)
       }
     }
 
+    function handleScroll() {
+      setOpen(false)
+    }
+
     if (open) {
       document.addEventListener('mousedown', handleClickOutside)
-      return () => document.removeEventListener('mousedown', handleClickOutside)
+      window.addEventListener('scroll', handleScroll)
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+        window.removeEventListener('scroll', handleScroll)
+      }
     }
   }, [open])
 
@@ -33,7 +42,7 @@ export default function Navbar() {
             <a href="#services" className="text-slate-700 hover:text-blue-600 transition">Services</a>
             <a href="#contact" className="text-slate-700 hover:text-blue-600 transition">Contact</a>
           </nav>
-          <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          <button ref={buttonRef} className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
             </svg>
